@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <section>
+      <h1>Edit Task</h1>
+    </section>
+    <section>
+      <form action="{% url 'editTask' task.pk %}" method="POST">
+        {% csrf_token %}
+        <input
+          type="text"
+          name="task"
+          value="{{ task.task }}"
+          class="border-2 border-black w-full py-2"
+        />
+        <button type="submit">Submit Edit Task</button>
+      </form>
+    </section>
+  </body>
+</html>
